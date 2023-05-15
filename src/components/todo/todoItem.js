@@ -1,5 +1,6 @@
-import { FaCheckCircle, FaRegCircle } from 'react-icons/fa';
+import { FaCheckCircle, FaRegCircle, FaPen, FaTrashAlt } from 'react-icons/fa';
 import useToggleState from '@/utilities/hooks/useToggleState';
+import { useEffect } from 'react';
 
 export default function TodoItem({
   id,
@@ -25,14 +26,22 @@ export default function TodoItem({
     );
   };
 
+  useEffect(() => {
+    console.log(completed);
+  }, [completed]);
+
   return (
     <div className="flex gap-2">
       <Checkbox />
       <p style={{ textDecoration: completed ? 'line-through' : 'none' }}>
-        todotext
+        {text}
       </p>
-      <p>eb</p>
-      <p>db</p>
+      <button onClick={toggleTodo}>
+        <FaPen />
+      </button>
+      <button onClick={() => deleteTodo(id)}>
+        <FaTrashAlt />
+      </button>
     </div>
   );
 }
