@@ -12,13 +12,14 @@ export default function AddTodo({ addTodo }) {
   };
 
   return (
-    <section>
+    <section className="my-5 bg-blue-500 py-3">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={value}
           onChange={handleChange}
           placeholder="add a new todo"
+          className="ml-3"
         />
       </form>
     </section>

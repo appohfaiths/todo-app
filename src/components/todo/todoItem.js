@@ -1,6 +1,7 @@
 import { FaCheckCircle, FaRegCircle, FaPen, FaTrashAlt } from 'react-icons/fa';
 import useToggleState from '@/utilities/hooks/useToggleState';
-import { useEffect } from 'react';
+import EditTodoForm from './editTodoForm';
+import { useEffect, useState } from 'react';
 
 export default function TodoItem({
   id,
@@ -10,18 +11,15 @@ export default function TodoItem({
   editTodo,
   deleteTodo,
 }) {
-  // const [isEditing, toggle] =
+  const [isEditing, toggle] = useToggleState(false);
 
   const Checkbox = () => {
-    const [isChecked, toogle] = useToggleState(false);
-
     const handleToggleClick = () => {
-      toogle();
-      completed;
+      toggleTodo(id);
     };
     return (
       <div onClick={handleToggleClick}>
-        {isChecked ? <FaCheckCircle /> : <FaRegCircle />}
+        {completed ? <FaCheckCircle /> : <FaRegCircle />}
       </div>
     );
   };
@@ -31,17 +29,35 @@ export default function TodoItem({
   }, [completed]);
 
   return (
-    <div className="flex gap-2">
-      <Checkbox />
-      <p style={{ textDecoration: completed ? 'line-through' : 'none' }}>
-        {text}
-      </p>
-      <button onClick={toggleTodo}>
-        <FaPen />
-      </button>
-      <button onClick={() => deleteTodo(id)}>
-        <FaTrashAlt />
-      </button>
-    </div>
+    <>
+      {isEditing ? (
+        <EditTodoForm
+          editTodo={editTodo}
+          id={id}
+          text={text}
+          toggleEditForm={toggle}
+        />
+      ) : (
+        <div className="flex gap-2 items-center my-3">
+          <Checkbox />
+          <div className="flex flex-col items-start w-3/4">
+            <p style={{ textDecoration: completed ? 'line-through' : 'none' }}>
+              {text}
+            </p>
+            <p className="text-xs">
+              {completed ? <span>completed</span> : <span>pending</span>}
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            {/* <button onClick={toggle}>
+              <FaPen />
+            </button> */}
+            <button onClick={() => deleteTodo(id)}>
+              <FaTrashAlt />
+            </button>
+          </div>
+        </div>
+      )}
+    </>
   );
 }

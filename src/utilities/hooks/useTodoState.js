@@ -1,8 +1,8 @@
 import useLocalStorage from '@/utilities/hooks/useLocalStorageState';
 import { v4 as uuidv4 } from 'uuid';
 
-export default (initialTodos) => {
-  const [todos, setTodos] = useLocalStorage('todos', initialTodos);
+export default () => {
+  const [todos, setTodos] = useLocalStorage('todos', []);
 
   return {
     todos,
