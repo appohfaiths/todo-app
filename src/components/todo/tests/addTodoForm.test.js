@@ -1,8 +1,9 @@
-import { render, fireEvent, screen } from '@testing-library/react';
+import React from 'react';
+import { render, screen } from '@testing-library/react';
 import AddTodo from '../addTodoForm';
 
-test('user should not be able to submit an empty form', () => {
+test('add a new todo', () => {
   render(<AddTodo />);
 
-  screen.debug();
+  screen.getByRole('textbox');
 });

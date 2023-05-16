@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 import TodoItem from './todoItem';
 
@@ -14,9 +15,9 @@ export default function TodoDisplay({
   }, [todos]);
 
   return (
-    <>
+    <div data-testid="todoDisplay">
       {theTodos ? (
-        <div className="bg-green-300">
+        <div className="">
           {theTodos.map((todo, i) => (
             <TodoItem
               {...todo}
@@ -30,6 +31,6 @@ export default function TodoDisplay({
       ) : (
         ''
       )}
-    </>
+    </div>
   );
 }

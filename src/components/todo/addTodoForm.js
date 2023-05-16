@@ -1,4 +1,6 @@
 'use client';
+import React from 'react';
+import { FaPlusCircle, FaPlusSquare } from 'react-icons/fa';
 import { useState, useRef } from 'react';
 import useInputState from '@/utilities/hooks/useInputState';
 
@@ -28,18 +30,26 @@ export default function AddTodo({ addTodo }) {
   };
 
   return (
-    <section className="my-5 bg-blue-500 py-3">
+    <section className="my-5 bg-blue-500 py-2 px-2 rounded-full">
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={value}
-          onChange={handleChange}
-          placeholder="add a new todo"
-          className="ml-3 p-2"
-          onFocus={resetError}
-          ref={inputRef}
-        />
-        {errorMessage && <p>{errorMessage}</p>}
+        <div className="flex items-center">
+          <input
+            name="addTodoTextInput"
+            type="text"
+            value={value}
+            onChange={handleChange}
+            placeholder="what do you need to do?"
+            className="px-3 py-3 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none w-3/4 h-full rounded-full"
+            onFocus={resetError}
+            ref={inputRef}
+            data-testid="todoInput"
+            autoFocus
+          />
+          <button className="ml-3 text-white" onClick={handleSubmit}>
+            <FaPlusCircle size={38} />
+          </button>
+        </div>
+        {errorMessage && <p data-testid="errorMessage">{errorMessage}</p>}
       </form>
     </section>
   );

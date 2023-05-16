@@ -18,9 +18,13 @@ export default function TodoItem({
       toggleTodo(id);
     };
     return (
-      <div onClick={handleToggleClick}>
-        {completed ? <FaCheckCircle /> : <FaRegCircle />}
-      </div>
+      <button className="hover:text-green-600" onClick={handleToggleClick}>
+        {completed ? (
+          <FaCheckCircle className="text-blue-600" />
+        ) : (
+          <FaRegCircle />
+        )}
+      </button>
     );
   };
 
@@ -38,10 +42,15 @@ export default function TodoItem({
           toggleEditForm={toggle}
         />
       ) : (
-        <div className="flex gap-2 items-center my-3">
+        <div className="flex gap-4 items-center my-3 rounded-lg shadow-md py-4 px-2">
           <Checkbox />
           <div className="flex flex-col items-start w-3/4">
-            <p style={{ textDecoration: completed ? 'line-through' : 'none' }}>
+            <p
+              style={{
+                textDecoration: completed ? 'line-through' : 'none',
+              }}
+              className="text-2xl font-bold"
+            >
               {text}
             </p>
             <p className="text-xs">
@@ -52,7 +61,10 @@ export default function TodoItem({
             {/* <button onClick={toggle}>
               <FaPen />
             </button> */}
-            <button onClick={() => deleteTodo(id)}>
+            <button
+              className="hover:text-red-600"
+              onClick={() => deleteTodo(id)}
+            >
               <FaTrashAlt />
             </button>
           </div>

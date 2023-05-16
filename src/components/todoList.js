@@ -1,5 +1,5 @@
 'use client';
-
+import React from 'react';
 import { useEffect } from 'react';
 import TodoDisplay from '@/components/todo/todoDisplay';
 import AddTodo from '@/components/todo/addTodoForm';
@@ -14,7 +14,7 @@ export default function TodoList() {
   }, [todos]);
 
   return (
-    <>
+    <div className="pt-2">
       <AddTodo addTodo={addTodo} />
       <TodoDisplay
         todos={todos}
@@ -22,6 +22,6 @@ export default function TodoList() {
         toggleTodo={toggleTodo}
         editTodo={editTodo}
       />
-    </>
+    </div>
   );
 }
