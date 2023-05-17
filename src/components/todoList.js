@@ -10,7 +10,6 @@ export default function TodoList() {
 
   useEffect(() => {
     window.localStorage.setItem('todos', JSON.stringify(todos));
-    console.log(JSON.stringify(todos));
   }, [todos]);
 
   return (
