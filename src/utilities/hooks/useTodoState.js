@@ -9,7 +9,7 @@ export default () => {
     addTodo: (newTodoText) => {
       setTodos([
         ...todos,
-        { id: uuidv4(), text: newTodoText, completed: false },
+        { id: uuidv4(), text: newTodoText, completed: false, all: true },
       ]);
     },
     deleteTodo: (todoIdToDelete) => {
