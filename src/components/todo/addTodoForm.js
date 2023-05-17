@@ -45,7 +45,11 @@ export default function AddTodo({ addTodo }) {
             data-testid="todoInput"
             autoFocus
           />
-          <button className="ml-3 text-white" onClick={handleSubmit}>
+          <button
+            data-testid="submitButton"
+            className="ml-3 text-white"
+            onClick={handleSubmit}
+          >
             <FaPlusCircle size={38} />
           </button>
         </div>
