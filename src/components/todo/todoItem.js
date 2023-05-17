@@ -60,9 +60,9 @@ export default function TodoItem({
             </p>
           </div>
           <div className="flex items-center gap-2">
-            {/* <button onClick={toggle}>
+            <button onClick={toggle}>
               <FaPen />
-            </button> */}
+            </button>
             <button
               data-testid="deleteButton"
               className="hover:text-red-600"

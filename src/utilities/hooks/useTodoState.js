@@ -25,9 +25,9 @@ export default () => {
       setTodos(updatedTodos);
     },
     editTodo: (todoIdToEdit, newTodoText) => {
-      const updatedTodos = todos.map((todo) => {
-        todo.id === todoIdToEdit ? { ...todo, text: newTodoText } : todo;
-      });
+      const updatedTodos = todos.map((todo) =>
+        todo.id === todoIdToEdit ? { ...todo, text: newTodoText } : todo
+      );
       setTodos(updatedTodos);
     },
   };
