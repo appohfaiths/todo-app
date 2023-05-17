@@ -47,7 +47,7 @@ export default function AddTodo({ addTodo }) {
           />
           <button
             data-testid="submitButton"
-            className="ml-3 text-white"
+            className="ml-3 text-white hover:text-green-500 hover:bg-white hover:rounded-full"
             onClick={handleSubmit}
           >
             <FaPlusCircle size={38} />
