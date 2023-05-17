@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { FaCheckCircle, FaRegCircle, FaPen, FaTrashAlt } from 'react-icons/fa';
 import useToggleState from '@/utilities/hooks/useToggleState';
 import EditTodoForm from './editTodoForm';
@@ -18,7 +20,11 @@ export default function TodoItem({
       toggleTodo(id);
     };
     return (
-      <button className="hover:text-green-600" onClick={handleToggleClick}>
+      <button
+        data-testid="checkbox"
+        className="hover:text-blue-500"
+        onClick={handleToggleClick}
+      >
         {completed ? (
           <FaCheckCircle className="text-blue-600" />
         ) : (
@@ -27,10 +33,6 @@ export default function TodoItem({
       </button>
     );
   };
-
-  useEffect(() => {
-    console.log(completed);
-  }, [completed]);
 
   return (
     <>
@@ -49,12 +51,12 @@ export default function TodoItem({
               style={{
                 textDecoration: completed ? 'line-through' : 'none',
               }}
-              className="text-2xl font-bold"
+              className="text-2xl font-semibold"
             >
               {text}
             </p>
             <p className="text-xs">
-              {completed ? <span>completed</span> : <span>pending</span>}
+              {completed ? <span>completed</span> : <span>active</span>}
             </p>
           </div>
           <div className="flex items-center gap-2">
@@ -62,6 +64,7 @@ export default function TodoItem({
               <FaPen />
             </button> */}
             <button
+              data-testid="deleteButton"
               className="hover:text-red-600"
               onClick={() => deleteTodo(id)}
             >
