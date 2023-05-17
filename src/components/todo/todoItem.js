@@ -3,7 +3,6 @@ import React from 'react';
 import { FaCheckCircle, FaRegCircle, FaPen, FaTrashAlt } from 'react-icons/fa';
 import useToggleState from '@/utilities/hooks/useToggleState';
 import EditTodoForm from './editTodoForm';
-import { useEffect, useState } from 'react';
 
 export default function TodoItem({
   id,
@@ -15,6 +14,7 @@ export default function TodoItem({
 }) {
   const [isEditing, toggle] = useToggleState(false);
 
+  // function to handle toggle of completion status
   const Checkbox = () => {
     const handleToggleClick = () => {
       toggleTodo(id);
@@ -36,6 +36,7 @@ export default function TodoItem({
 
   return (
     <>
+      {/* show edit todo form when edit button is clicked */}
       {isEditing ? (
         <EditTodoForm
           editTodo={editTodo}

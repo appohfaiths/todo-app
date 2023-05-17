@@ -11,6 +11,7 @@ export default function TodoDisplay({
   const [theTodos, setTheTodos] = useState([]);
   const [filterType, setFilterType] = useState('all');
 
+  // assign the todos to local state when received
   useEffect(() => {
     setTheTodos(todos);
   }, [todos]);
@@ -19,6 +20,7 @@ export default function TodoDisplay({
     filterTodos();
   }, [todos, filterType]);
 
+  // function to handle filtering of todos
   const filterTodos = () => {
     let filteredTodos = theTodos;
 

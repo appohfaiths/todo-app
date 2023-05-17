@@ -14,7 +14,10 @@ export default function TodoList() {
 
   return (
     <div className="pt-2">
+      {/* Todo input form */}
       <AddTodo addTodo={addTodo} />
+
+      {/* List of added todos */}
       <TodoDisplay
         todos={todos}
         deleteTodo={deleteTodo}
