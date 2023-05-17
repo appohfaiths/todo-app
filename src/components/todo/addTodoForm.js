@@ -39,7 +39,7 @@ export default function AddTodo({ addTodo }) {
             value={value}
             onChange={handleChange}
             placeholder="what do you need to do?"
-            className="px-3 py-3 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none w-3/4 h-full rounded-full"
+            className="px-3 py-3 ml-3 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none w-3/4 h-full rounded-full"
             onFocus={resetError}
             ref={inputRef}
             data-testid="todoInput"
@@ -53,8 +53,12 @@ export default function AddTodo({ addTodo }) {
             <FaPlusCircle size={38} />
           </button>
         </div>
-        {errorMessage && <p data-testid="errorMessage">{errorMessage}</p>}
       </form>
+      {errorMessage && (
+        <p data-testid="errorMessage" className="text-xs ml-3 mt-1 text-white">
+          {errorMessage}
+        </p>
+      )}
     </section>
   );
 }
