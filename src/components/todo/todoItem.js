@@ -51,7 +51,7 @@ export default function TodoItem({
               style={{
                 textDecoration: completed ? 'line-through' : 'none',
               }}
-              className="text-2xl font-semibold"
+              className="text-2xl font-semibold w-full overflow-hidden"
             >
               {text}
             </p>
