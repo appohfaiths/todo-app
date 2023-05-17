@@ -36,7 +36,7 @@ export default function TodoDisplay({
   return (
     <>
       <div data-testid="todoDisplay">
-        {theTodos ? (
+        {theTodos.length > 0 ? (
           <div className="">
             {theTodos.map((todo, i) => (
               <TodoItem
@@ -49,7 +49,7 @@ export default function TodoDisplay({
             ))}
           </div>
         ) : (
-          ''
+          <p className="text-sm p-3 text-slate-600">nothing to show...</p>
         )}
       </div>
       <div className="flex items-center justify-around py-4 border-2 rounded-lg">
