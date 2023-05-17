@@ -50,6 +50,7 @@ export default function TodoItem({
             <p
               style={{
                 textDecoration: completed ? 'line-through' : 'none',
+                color: completed ? 'gray' : 'black',
               }}
               className="text-2xl font-semibold w-full overflow-hidden"
             >
